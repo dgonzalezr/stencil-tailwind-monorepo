@@ -1,0 +1,33 @@
+{
+  "branches": ["main", { "name": "develop", "prerelease": true }],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            { "type": "feat", "section": "** :sparkles: Features**" },
+            { "type": "fix", "section": "** :beetle: Fixed**" },
+            { "type": "chore", "section": "**Commits**" },
+            { "type": "docs", "section": "**Commits**" },
+            { "type": "refactor", "section": "**Commits**" },
+            { "type": "style", "hidden": true },
+            { "type": "perf", "hidden": true },
+            { "type": "test", "hidden": true }
+          ]
+        }
+      }
+    ],
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    [
+      "@semantic-release/git",
+      {
+        "message": "chore(release): v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "@semantic-release/github"
+  ]
+}

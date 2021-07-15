@@ -1,0 +1,56 @@
+{
+  "name": "root",
+  "private": true,
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/myst"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dgonzalezr/stencil-tailwind-monorepo"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "clean:all": "yarn clean:myst && yarn clean:modules",
+    "clean:myst": "rimraf \"packages/myst/dist\" && rimraf \"packages/myst/docs\"",
+    "clean:modules": "lerna clean -y && rimraf node_modules",
+    "format": "prettier \"packages/**/*.{ts,tsx,json}\"",
+    "format:check": "prettier --check \"packages/**/*.{ts,tsx}\"",
+    "lint": "eslint \"packages/**/*.{ts,tsx}\" --quiet --ignore-path .gitignore && yarn lint:myst",
+    "lint:myst": "lerna exec --scope myst-ds -- yarn lint",
+    "start": "lerna exec --scope myst-ds -- yarn start",
+    "build": "run-s build:myst",
+    "build:myst": "lerna exec --scope myst-ds -- yarn build",
+    "test": "yarn format:check && yarn lint && yarn test:myst",
+    "test:myst": "lerna exec --scope myst-ds -- yarn test",
+    "release": "multi-semantic-release --no-ci",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0",
+    "multi-semantic-release": "2.8.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.3.1",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.3.0",
+    "typescript": "4.3.4"
+  }
+}

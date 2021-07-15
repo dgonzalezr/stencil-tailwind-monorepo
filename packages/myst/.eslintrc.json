@@ -1,0 +1,9 @@
+{
+  "extends": ["../../.eslintrc.json", "plugin:@stencil/recommended"],
+  "rules": {
+    "@stencil/strict-boolean-conditions": "off",
+    "@stencil/strict-mutable": "off",
+    "@stencil/own-methods-must-be-private": "off",
+    "@stencil/async-methods": "off"
+  }
+}

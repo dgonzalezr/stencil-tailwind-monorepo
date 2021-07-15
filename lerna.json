@@ -1,0 +1,17 @@
+{
+  "npmClient": "yarn",
+  "packages": ["packages/myst"],
+  "useWorkspaces": true,
+  "version": "independent",
+  "command": {
+    "version": {
+      "message": "chore(release): %s",
+      "conventionalCommits": true,
+      "commitHooks": false,
+      "yes": true
+    },
+    "publish": {
+      "registry": "https://npm.pkg.github.com"
+    }
+  }
+}

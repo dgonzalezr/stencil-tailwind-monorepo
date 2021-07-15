@@ -1,0 +1,40 @@
+### IDE ###
+.DS_Store
+.idea
+.nova
+.sass-cache/
+.stencil
+.versions
+.vscode
+Thumbs.db
+$RECYCLE.BIN/
+
+### History ###
+# Ignore all local history of files
+.history
+
+### NPM/YARN ###
+*~
+*.lock
+*.log
+*.sublime-project
+*.sublime-workspace
+*.sw[mnpcod]
+*.tmp
+*.tmp.*
+.npmrc
+.pnp
+log.txt
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### BUILD ###
+build
+dist
+docs
+www
+
+### OTHERS ###
+packages/myst/src/components.d.ts
